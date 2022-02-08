@@ -4,10 +4,39 @@
   padding: 0;
 }
 
+:root {
+  --task-bar-height: 3em;
+  --task-bar-width: 100%;
+  --task-bar-gradient: linear-gradient(
+    90deg,
+    #2a373c 0%,
+    #27353a 50%,
+    #1f292d 100%
+  );
+}
+
 .desktop {
-  background-image: url("/img1.jpg");
-  background-position: center;
-  background-size: cover;
   height: 100vh;
   width: 100vw;
+}
+
+.background {
+  background-position: center;
+  background-size: cover;
+}
+
+.task-bar {
+  height: var(--task-bar-height);
+  width: var(--task-bar-width);
+  background: var(--task-bar-gradient);
+  position: absolute;
+}
+
+.bottom {
+  bottom: 0;
+}
+
+.windows {
+  fill: white;
+  transform: scale(0.4);
 }
