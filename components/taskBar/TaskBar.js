@@ -1,10 +1,13 @@
 import React from "react";
-import Windows from "../icons/Windows";
+import Start from "../icons/Start";
+import TaskBarButton from "./taskBarButton/TaskBarButton";
 
 const TaskBar = () => {
   return (
     <div className="task-bar bottom">
-      <Windows />
+      <TaskBarButton tooltip='Start'>
+        <Start />
+      </TaskBarButton>
     </div>
   );
 };

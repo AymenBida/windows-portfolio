@@ -5,7 +5,7 @@
 }
 
 :root {
-  --task-bar-height: 3em;
+  --task-bar-height: 2.8em;
   --task-bar-width: 100%;
   --task-bar-gradient: linear-gradient(
     90deg,
@@ -13,6 +13,10 @@
     #27353a 50%,
     #1f292d 100%
   );
+  --task-bar-button-width: 3.6em;
+  --tooltip-border-color: #5e5e5e;
+  --white: white;
+  --windows-orange: #d9ab6c;
 }
 
 .desktop {
@@ -30,6 +34,42 @@
   width: var(--task-bar-width);
   background: var(--task-bar-gradient);
   position: absolute;
+
+  &__button {
+    background-color: transparent;
+    border: none;
+    width: var(--task-bar-button-width);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &::before {
+      content: attr(data-tooltip);
+      display: block;
+      position: absolute;
+      transform: translateY(-100%);
+      top: 2px;
+      padding: 0.16em 0.45em;
+      font-size: 0.9em;
+      font-family: system-ui;
+      background-color: var(--white);
+      border: solid var(--tooltip-border-color) 0.2px;
+      color: var(--tooltip-border-color);
+      box-shadow: 3px 8px 5px 0px #2a373c;
+      transition: opacity 250ms 500ms ease-out;
+      opacity: 0;
+    }
+
+    &:hover {
+      background-color: rgba(var(--white), 0.1);
+      > .windows {
+        fill: var(--windows-orange);
+      }
+      &::before {
+        opacity: 100;
+      }
+    }
+  }
 }
 
 .bottom {
